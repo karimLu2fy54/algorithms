@@ -1,33 +1,42 @@
+
+
+ 
+
 function largestPalindromeProduct(n) {
   
   var NombreMax = Math.pow(10,n) - 1;
+  var QuitterLaBoucle = false;
 
-  for(var i=0;i<NombreMax;i++){
-    for(var j=0;j<NombreMax;j++){
-      var result = i*j;
-      var PuissMax = n*2 - 1;
+  var LePlusGrandPalindrome = 0;
+
+
+  var res = i*j;
+
+  for(var i=NombreMax;i>0;i--){
+    for(var j=NombreMax;j>0;j--){
+      res = i*j;
       
-      if(n%2 == 0){
+      //console.log(i,j,res);
 
-        var mil = n%2;
-        for(var k=0;k<mil;k++){
-          for(var k=PuissMax;k>mil;k--){
-            if(){
+      let str = res.toString();
+      let reverse = str.split("").reverse().join("");
 
-            }
-          }
-        }
-
-      }else{
-
+      if(str==reverse & res>LePlusGrandPalindrome){
+        console.log(res);
+        LePlusGrandPalindrome = res;
       }
+
       
-
-
+   
     }
+
+  
+ 
+    
   }
 
 
-}
+return LePlusGrandPalindrome;
 
 largestPalindromeProduct(2);
+largestPalindromeProduct(3);
