@@ -10,7 +10,7 @@ for(var i=1;i<longueur;i++){
 
   var j=positionNombreARanger;
 
-  while(j>=0 & nombreAranger < tab[j-1]){
+  while(j>=0 & nombreAranger < array[j-1]){
     array[j] = array[j-1];
     j=j-1;
     console.log(array);
