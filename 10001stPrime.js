@@ -1,33 +1,38 @@
 function nthPrime(n) {
-  
-var Prime = [2,3,5,7,11,13];
-var Numbertest = 2;
+  // Good luck!
 
-var NumberofDiviseurs = 0;
+var tabNbpremiers = [2];
+var NombreAtester = 3; 
 
-while(Numbertest < n){
-  var NumberofDiviseurs = 0;
-  for(var i=0;i<Prime.length;i++){
-    if(Numbertest%Prime[i]==0){
-      NumberofDiviseurs ++;
+while(tabNbpremiers.length < n){
+
+  var NombreDeDiviseurs = 0;
+
+  var LimiteDeDivision = Math.sqrt(NombreAtester) + 1;
+
+    for(var i = 0; i<tabNbpremiers.length; i++){
+
+      if(tabNbpremiers[i] < LimiteDeDivision){
+
+        if(NombreAtester%tabNbpremiers[i] == 0){
+          NombreDeDiviseurs = NombreDeDiviseurs + 1;
+        }
+
     }
-  }
 
-if(NumberofDiviseurs == 0){
-  Prime.push(n);
+    }
+
+    if(NombreDeDiviseurs == 0){
+      tabNbpremiers.push(NombreAtester);
+    }
+
+    /*Pour optimiser, nous testons que les nombres impaires, puisque les paires ne sont pas premiers évidemment */
+    NombreAtester = NombreAtester + 2;
+    
+  
+  } 
+
+  return tabNbpremiers[n-1];
 }
 
-Numbertest = Numbertest + 1;
-
-}
-
-console.log(NumberofDiviseurs);
-console.log(Prime);
-
-
-
-
-
-}
-
-nthPrime();
+nthPrime(6);
